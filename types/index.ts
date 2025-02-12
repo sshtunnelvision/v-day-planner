@@ -1,6 +1,6 @@
 export interface GeneratePlanRequest {
   location: string;
-  interests: string[];
+  interests?: string[];
   budget?: string;
   preferences?: string;
   foodPreference?: string;

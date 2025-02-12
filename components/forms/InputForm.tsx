@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { GeneratePlanRequest } from "@/types";
-import { validateLocation, validateInterests } from "@/lib/utils";
+import { validateLocation } from "@/lib/utils";
 import { X } from "lucide-react";
 
 const COMMON_INTERESTS = [
@@ -94,15 +94,15 @@ export function InputForm({ onSubmit, isLoading }: InputFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateLocation(location) || !validateInterests(interests)) {
-      alert("Please fill in all required fields");
+    if (!validateLocation(location)) {
+      alert("Please enter a valid location");
       return;
     }
 
     const data: GeneratePlanRequest = {
       location,
-      interests,
-      foodPreference,
+      ...(interests.length > 0 && { interests }),
+      ...(foodPreference && { foodPreference }),
       ...(budget && { budget }),
       ...(preferences && { preferences }),
     };
@@ -140,7 +140,7 @@ export function InputForm({ onSubmit, isLoading }: InputFormProps) {
 
       <div className="space-y-4">
         <label className="block text-sm font-medium text-muted-foreground">
-          Partner&apos;s Interests *
+          Partner&apos;s Interests
         </label>
 
         <AnimatePresence>

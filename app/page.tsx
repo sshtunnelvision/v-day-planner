@@ -69,8 +69,8 @@ export default function Home() {
                   <Heart className="h-12 w-12 text-primary" />
                 </motion.div>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-                VALENTINES DAY DATE PLANNER
+              <h1 className="text-4xl md:text-6xl font-light text-primary mb-4 font-dm-sans tracking-tight">
+                v date night
               </h1>
             </motion.header>
 

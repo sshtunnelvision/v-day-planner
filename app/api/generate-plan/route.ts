@@ -182,7 +182,7 @@ export async function POST(request: Request) {
         {
           role: 'user',
           content: `Create a Valentine's Day date plan for ${location}.
-          Partner's interests: ${interests.join(', ')}
+          ${interests?.length ? `Partner's interests: ${interests.join(', ')}` : 'No specific interests provided'}
           ${preferences ? `Preferences: ${preferences}` : ''}
           
           Restaurant information from local search:

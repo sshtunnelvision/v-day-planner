@@ -21,6 +21,7 @@ export function validateLocation(location: string): boolean {
   return location.trim().length >= 2;
 }
 
-export function validateInterests(interests: string[]): boolean {
-  return interests.length > 0 && interests.every(interest => interest.trim().length > 0);
+export function validateInterests(interests: string[] | undefined): boolean {
+  if (!interests || interests.length === 0) return true;
+  return interests.every(interest => interest.trim().length > 0);
 }
